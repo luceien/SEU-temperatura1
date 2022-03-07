@@ -19,10 +19,11 @@ This ESP8266 is crucial in order to control all the components and make requests
 ## How it works
 
 The goal of the project was to retrieve and display real-time temperature information and create the following situations :
-  ⋅⋅* If the temperature is **below 23°C**, all the *lights are off*.
-  ⋅⋅* From 23°C, a **light will turn on every 3°C** until 32°C where they are all on.
-  ⋅⋅* An emergency **buzzer rings at 34°C**.
-
+- If the temperature is **below 23°C**, all the *lights are off*.
+- From 23°C, a **light will turn on every 3°C** until 32°C where they are all on.
+- An emergency **buzzer rings at 34°C**.
+ 
+ 
 To develop the project, I decided to split it in **three threads**. One is used to *display the data* we have collected (temperature and time) by reading the buffer, another is used to handle everything related to the temperature which means **reading the temperature on the NTC** and **lighting the right LEDs** or activating the buzzer depending on the temperature.
 The last thread is used to handle everything related to the **time** which means **connecting to the wifi** to collect and clean the json file so that I can display it.
 
@@ -35,11 +36,3 @@ The file *utility.c* allows to get information and display them in the terminal 
  
  
 Finally, I send the temperature value in the **buffer** with *temperature_buffer_write* to update *lights_list* and *buzzer*. Thus, the function *set_lights_and_buzzer* updates states of the lights and buzzer to match the requirements.
-
-
-
-
-
-
-
-
