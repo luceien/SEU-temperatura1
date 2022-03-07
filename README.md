@@ -5,13 +5,16 @@ In the subject '*Sistemas empotrados y ubicos*' at the **Escuela Técnica Superi
 ## Composition
 
 Our system is made out of 4 LEDs, one buzzer, several resistances and capacities, switches, Negative Temperature Coefficient Thermistor (NTC) and also an **ESP8266**. It was all organized as shown below with a computer connected to D2 to display the outputs.
-
+ 
+ 
 ![alt text](https://github.com/luceien/SEU-temperatura1/blob/main/Images/schema.jpg)
-
+ 
+  
 This ESP8266 is crucial in order to control all the components and make requests via a wifi network. Here is its [pinout](https://components101.com/development-boards/nodemcu-esp8266-pinout-features-and-datasheet "ESP8266 Pinout") 
-
+ 
+  
 ![alt text](https://github.com/luceien/SEU-temperatura1/blob/main/Images/ESP8266.jpg)
-
+ 
 
 ## How it works
 
@@ -27,8 +30,10 @@ The last thread is used to handle everything related to the **time** which means
 We use *ESP8266* to connect to the wifi and go through [**worldclockapi.com**](worldclockapi.com) to obtain time in JSON format and, on the other hand, we use a NTC to obtain the temperature.
 
 The file *utility.c* allows to get information and display them in the terminal : 
+ 
 ![alt text](https://github.com/luceien/SEU-temperatura1/blob/main/Images/temperature.jpg)
-
+ 
+ 
 Finally, I send the temperature value in the **buffer** with *temperature_buffer_write* to update *lights_list* and *buzzer*. Thus, the function *set_lights_and_buzzer* updates states of the lights and buzzer to match the requirements.
 
 
